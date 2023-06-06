@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { useSession, signIn, signOut } from "next-auth/react"
+import Link from 'next/link';
 
 const Home: NextPage = () => {
   const { data: session } = useSession()
@@ -17,9 +18,10 @@ const Home: NextPage = () => {
       {/* Create navbar */}
       <nav className={styles.navbar}>
         <div className={styles.navbarLinks}>
-          <a href="#">Home</a>
-          <a href="#">About</a>
-          <a href="#">Contact</a>
+          <Link href="/">Home</Link>
+          <Link href="/record">Record</Link>
+          <Link href="/plan">Training Plans</Link>
+          <Link href="/map">Mapping</Link>
         </div>
         <div className={styles.signup}>
           {session && session.user ? (
